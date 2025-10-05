@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gesture Player</title>
+    <link rel="stylesheet" href="styles/player.css" />
+  </head>
+  <body>
+    <div id="playerRoot" class="player-root">
+      <video id="video" class="video" preload="metadata" crossorigin="anonymous">
+        <track id="subtitleTrack" kind="subtitles" srclang="en" label="Subtitles" />
+      </video>
+
+      <!-- Brightness overlay (simulated) -->
+      <div id="brightnessOverlay" class="brightness-overlay"></div>
+
+      <!-- HUD for gestures -->
+      <div id="hud" class="hud hidden">
+        <div id="hudIcon" class="hud-icon">⛶</div>
+        <div id="hudText" class="hud-text">0%</div>
+      </div>
+
+      <!-- Controls overlay -->
+      <div class="controls-overlay">
+        <div class="controls-left">
+          <button id="prevBtn" class="icon-btn" title="Previous (Shift+P)">⟲</button>
+          <button id="playPauseBtn" class="icon-btn" title="Play/Pause (Space/K)">▶</button>
+          <button id="nextBtn" class="icon-btn" title="Next (Shift+N)">⟳</button>
+        </div>
+
+        <div class="controls-center">
+          <div id="timeline" class="timeline" role="slider" aria-label="Seek">
+            <div class="timeline-buffer"></div>
+            <div class="timeline-progress"></div>
+            <div class="timeline-thumb"></div>
+            <div id="seekPreview" class="seek-preview hidden">
+              <canvas id="seekCanvas" width="160" height="90"></canvas>
+              <div id="seekTime" class="seek-time">00:00</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls-right">
+          <input id="fileInput" type="file" accept="video/*" multiple hidden />
+          <input id="folderInput" type="file" webkitdirectory hidden />
+          <button id="addBtn" class="icon-btn" title="Add files or folder">＋</button>
+          <button id="fullscreenBtn" class="icon-btn" title="Fullscreen (F)">⛶</button>
+          <button id="settingsBtn" class="icon-btn" title="Settings">⚙</button>
+        </div>
+      </div>
+
+      <!-- Settings panel -->
+      <div id="settingsPanel" class="settings-panel hidden">
+        <div class="settings-row">
+          <label>
+            <input id="autoplayToggle" type="checkbox" /> Autoplay next
+          </label>
+        </div>
+        <div class="settings-row">
+          <label for="speedSelect">Playback speed</label>
+          <select id="speedSelect">
+            <option value="0.5">0.5x</option>
+            <option value="0.75">0.75x</option>
+            <option value="1" selected>1x</option>
+            <option value="1.25">1.25x</option>
+            <option value="1.5">1.5x</option>
+            <option value="1.75">1.75x</option>
+            <option value="2">2x</option>
+          </select>
+        </div>
+        <div class="settings-row">
+          <label class="file-label">
+            <input id="subtitleInput" type="file" accept=".vtt,.srt,.ass,.ssa" hidden />
+            <span class="btn">Add subtitles (.vtt preferred)</span>
+          </label>
+        </div>
+        <div class="settings-row small">
+          <span>Hotkeys: Space/K play-pause, J/L ±10s, ←/→ ±5s, ↑/↓ vol, M mute, F fullscreen, C captions</span>
+        </div>
+      </div>
+
+      <!-- Playlist sidebar -->
+      <div id="playlist" class="playlist"></div>
+
+      <!-- Gesture capture layer -->
+      <div id="gestureLayer" class="gesture-layer"></div>
+
+      <!-- Hidden track container moved inside <video> -->
+    </div>
+
+    <!-- Drag & drop zone -->
+    <div id="dropOverlay" class="drop-overlay hidden">Drop videos here</div>
+
+    <script type="module" src="js/player.js"></script>
+  </body>
+</html>

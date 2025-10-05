@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Edge Gesture Video Player",
+  "version": "0.1.0",
+  "description": "A local video player with ACG-like gestures, YouTube-style seek preview, hotkeys, and popup window.",
+  "action": {
+    "default_title": "Open Gesture Video Player",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["storage", "windows"],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "player.html",
+        "styles/*",
+        "js/*",
+        "assets/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "minimum_chrome_version": "109"
+}
