@@ -1,0 +1,153 @@
+/* Popup Styles */
+body {
+    width: 320px;
+    min-height: 400px;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #1a1a1a;
+    color: white;
+}
+
+.popup-container {
+    padding: 20px;
+}
+
+h2 {
+    margin: 0 0 20px 0;
+    font-size: 1.4rem;
+    text-align: center;
+    color: #ff0000;
+}
+
+h3 {
+    margin: 20px 0 10px 0;
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn.primary {
+    background: #ff0000;
+    color: white;
+}
+
+.btn.primary:hover {
+    background: #cc0000;
+    transform: translateY(-1px);
+}
+
+.btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.btn.link {
+    background: none;
+    color: #ff0000;
+    text-decoration: underline;
+    padding: 8px 0;
+}
+
+.btn.link:hover {
+    color: #cc0000;
+}
+
+.recent-files {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+
+.files-list {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.file-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.file-name {
+    font-size: 0.85rem;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.file-size {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.no-files {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+.settings-link {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    text-align: center;
+}
+
+/* Custom Scrollbar */
+.files-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.files-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.files-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.files-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
